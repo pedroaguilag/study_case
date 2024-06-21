@@ -27,13 +27,18 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/my-python-app:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/study_case:latest
 
-#    - name: Deploy to server
-#      run: |
-#        ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
-#          docker pull ${{ secrets.DOCKER_USERNAME }}/my-python-app:latest
-#          docker stop my-python-app || true
-#          docker rm my-python-app || true
-#          docker run -d --name my-python-app -p 80:80 ${{ secrets.DOCKER_USERNAME }}/my-python-app:latest
-#        EOF
+  tests:
+    - name: Run tests before deploy
+
+  deploy:
+   needs: build
+    - name: Deploy to server
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
+          docker pull ${{ secrets.DOCKER_USERNAME }}/my-python-app:latest
+          docker stop my-python-app || true
+          docker rm my-python-app || true
+          docker run -d --name my-python-app  ${{ secrets.DOCKER_USERNAME }}/my-python-app:latest
+        EOF
