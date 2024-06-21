@@ -7,7 +7,7 @@ This application uses poetry for dependency managenement, in case it is not inst
 
 From the project local folder study_case execute `poetry install` to install all dependencies and create a virtual environment
 
-Unzip the requests.zip file into /requests folder in local
+Unzip the requests.zip file into /requests folder in project folder study_case
 
 The application uses a config.yml file to configure the following parameters:
 
