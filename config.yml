@@ -1,0 +1,12 @@
+dev:
+  requests_file_path: '/Users/pedroaguila/GitHub/study_case/requests/2020'
+prod:
+  requests_file_path: '/app/requests'
+
+viz:
+  start_date: '2020-05-01'
+  end_date: '2020-05-20'
+export:
+  start_date: '2020-06-01'
+  end_date: '2020-10-01'
+  export_file_name: 'requests.csv'
