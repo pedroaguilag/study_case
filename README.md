@@ -33,3 +33,8 @@ export:
 Dockerfile is provide to build an image and deploy and run it on a server
 
 
+For Production:
+
+- For now env variable is defined in main function, please before docker build and docker run update the env='prod'
+
+
